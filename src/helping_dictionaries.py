@@ -38,9 +38,9 @@ keyboard_neighbors = {
 }
 
 phonetic_mapping = {
-    'س': ['ث', 'ش'], 
+    'س': ['ث', 'ش'], # just a placeholder
 }
 
 diacritic_mapping = {
-    'َ': ['ُ', 'ِ'],
+    'َ': ['ُ', 'ِ'],   # just a placeholder
 }

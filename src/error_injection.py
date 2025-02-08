@@ -67,14 +67,10 @@ def apply_errors_to_segment(text, error_funcs, error_probability=0.1):
     
     # Extract the segment to modify
     segment = text[start:end]
-
-    print('segment before:', segment)
     
     # Apply each error function to the segment
     for func in error_funcs:
         segment = func(segment, error_probability)
-
-    print('segment after:', segment)
     
     return text[:start] + segment + text[end:]
 

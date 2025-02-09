@@ -104,9 +104,14 @@ def apply_errors_to_segment(text, error_funcs):
 error_functions = [
     apply_keyboard_error,
     apply_ordering_error,
-    # apply_phonetic_error,
+    apply_phonetic_error,
     apply_diacritic_error
 ]
 
 def inject_error(text):
-    return apply_errors_to_segment(text, error_functions)
+    text_chars = list(text)  # Convert text to a list for modification
+
+    for error_func in error_functions:
+        text_chars = error_func(text_chars)  # Apply each error function independently
+
+    return ''.join(text_chars)  # Convert back to string

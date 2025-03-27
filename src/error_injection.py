@@ -18,7 +18,7 @@ def apply_keyboard_error(text):
             text_chars[i] = random.choice(keyboard_neighbors[char])
             number_of_errors += 1
 
-    print(f'Number of keyboard errors: {number_of_errors}')
+    # Print statement removed
     return ''.join(text_chars)
 
 ##############################################################################
@@ -38,7 +38,7 @@ def apply_ordering_error(text):
             text_chars[i], text_chars[i+1] = text_chars[i+1], text_chars[i]
             number_of_errors += 1
 
-    print(f'Number of ordering errors: {number_of_errors}')
+    # Print statement removed
     return ''.join(text_chars)
 
 ##############################################################################
@@ -55,7 +55,7 @@ def apply_phonetic_error(text):
                 text_chars[i] = random.choice(phonetic_mapping[char])
                 number_of_errors += 1
 
-    print(f'Number of phonetic errors: {number_of_errors}')
+    # Print statement removed
     return ''.join(text_chars)
 
 ##############################################################################
@@ -70,7 +70,7 @@ def apply_diacritic_error(text):
             text_chars[i] = random.choice(diacritic_mapping[char])
             number_of_errors += 1
 
-    print(f'Number of diacritic errors: {number_of_errors}\n')
+    # Print statement removed
     return ''.join(text_chars)
 
 ##############################################################################

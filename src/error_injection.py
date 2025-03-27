@@ -75,20 +75,21 @@ def apply_diacritic_error(text):
 
 ##############################################################################
 
-# error functions list
-error_functions = [
-    apply_keyboard_error,
-    apply_ordering_error,
-    apply_phonetic_error,
-    apply_diacritic_error
-]
+# error functions dictionary by type
+error_functions = {
+    "speech": [apply_phonetic_error, apply_diacritic_error],
+    "typing": [apply_keyboard_error, apply_ordering_error],
+    "": [apply_keyboard_error, apply_ordering_error, apply_phonetic_error, apply_diacritic_error]
+}
 
-def inject_error(text):
-
+def inject_error(text, type=""):
     if not text or len(text) < 2:
         return text
-
-    for error_func in error_functions:
+    
+    # Select error functions based on type
+    selected_error_functions = error_functions.get(type, error_functions[""])
+    
+    for error_func in selected_error_functions:
         text = error_func(text)  # Apply each error function independently
 
     return text  # Convert back to string

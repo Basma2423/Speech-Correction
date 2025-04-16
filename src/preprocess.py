@@ -17,7 +17,7 @@ with open("./utils/arabic_letters.pickle", "rb") as file:
     basic_arabic_letters = list(pickle.load(file))
 
 VALID_ARABIC_CHARS = basic_arabic_letters + MAIN_DIACRITICS + PUNCTUATIONS + [' ']
-ONLY_ARABIC_CHARS = basic_arabic_letters + MAIN_DIACRITICS + [' ']
+ONLY_ARABIC_CHARS = basic_arabic_letters + MAIN_DIACRITICS + [' ', '.'] 
 
 # Regex for whitespace normalization
 WHITESPACES_PATTERN = re.compile(r"\s+")

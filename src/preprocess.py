@@ -19,6 +19,9 @@ with open("./utils/arabic_letters.pickle", "rb") as file:
 VALID_ARABIC_CHARS = basic_arabic_letters + MAIN_DIACRITICS + PUNCTUATIONS + [' ']
 ONLY_ARABIC_CHARS = basic_arabic_letters + MAIN_DIACRITICS + [' ', '.'] 
 
+# Replace single Arabic letters surrounded by spaces (like " ب ") with just the letter (like "ب")
+SINGLE_LETTER_PATTERN = re.compile(r'\s[' + ''.join(basic_arabic_letters) + r']\s')
+
 # Regex for whitespace normalization
 WHITESPACES_PATTERN = re.compile(r"\s+")
 
@@ -26,6 +29,7 @@ def preprocess(text, valid_chars=ONLY_ARABIC_CHARS):
     """Preprocess text by removing invalid chars and normalizing whitespace."""
     filtered_text = ''.join(ch for ch in text if ch in valid_chars)
     collapsed_text = WHITESPACES_PATTERN.sub(' ', filtered_text)
+    collapsed_text = SINGLE_LETTER_PATTERN.sub(' ', collapsed_text)
     return collapsed_text.strip()
 
 def preprocess_file(input_path, output_dir="preprocessed", keep_punctuation=False):

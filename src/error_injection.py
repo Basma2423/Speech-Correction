@@ -130,14 +130,14 @@ error_functions = {
 # | 4. All errors combined (speech + typing)              | 
 # |=======================================================|
 
-def inject_error(text, type=""):
+def inject_error(text, error_type=""):
     if not text or len(text) < 2:
         return text
     
     if random.random() < NO_ERROR_PROBABILITY:
         return text
     
-    selected_error_functions = error_functions.get(type, error_functions[""])
+    selected_error_functions = error_functions.get(error_type, error_functions[""])
     
     for error_func in selected_error_functions:
         text = error_func(text)

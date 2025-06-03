@@ -1,3 +1,5 @@
+from dataclasses import dataclass
+
 LETTERS = [
     'ب', 'ت', 'ث', 'ج', 'ح', 'خ', 'د', 'ذ', 'ر', 'ز', 'س', 'ش', 'ص', 'ض', 'ط', 'ظ',
     'ع', 'غ', 'ف', 'ق', 'ك', 'ل', 'م', 'ن', 'ه', 'و', 'ي', 'ا', 'ى', 'أ', 'إ', 'ؤ', 'ئ', 'ة', 'ء' , 'آ'
@@ -111,3 +113,12 @@ diacritic_mapping = {
     'ِّ': ['َ', 'ً', 'ُ', 'ٌ', 'ِ', 'ٍ', 'ْ', 'ّ', 'َّ', 'ًّ', 'ُّ', 'ٌّ', 'ٍّ', ''],  # shadda + kasra
     'ٍّ': ['َ', 'ً', 'ُ', 'ٌ', 'ِ', 'ٍ', 'ْ', 'ّ', 'َّ', 'ًّ', 'ُّ', 'ٌّ', 'ِّ', ''],  # shadda + tanween kasra
 }
+
+@dataclass
+class ErrorProbabilities:
+    no_error: float = 0.50
+    keyboard: float = 0.02
+    ordering: float = 0.02
+    phonetic: float = 0.06
+    diacritic: float = 0.10
+    remove_diacritics: float = 0.50

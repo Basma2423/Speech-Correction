@@ -27,7 +27,7 @@ WHITESPACES_PATTERN = re.compile(r"\s+")
 
 def preprocess(text, valid_chars=ONLY_ARABIC_CHARS):
     """Preprocess text by removing invalid chars and normalizing whitespace."""
-    filtered_text = ''.join(ch for ch in text if ch in valid_chars)
+    filtered_text = ''.join(ch if ch in valid_chars else ' ' for ch in text)
     collapsed_text = WHITESPACES_PATTERN.sub(' ', filtered_text)
     collapsed_text = SINGLE_LETTER_PATTERN.sub(' ', collapsed_text)
     return collapsed_text.strip()

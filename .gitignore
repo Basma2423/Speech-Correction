@@ -1,4 +1,3 @@
 src/__pycache__/
 preprocessed/
-inject_errors.py
 src/diacritize.py

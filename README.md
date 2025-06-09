@@ -1,5 +1,21 @@
 # Speech-Correction
 
+## Error Types:
+|=======================================================|
+| Error types (each has it's own probability):          |
+|=======================================================|
+| 1. No errors                                          |
+| 2. Speech errors                                      |
+|   2.1. Phonetic errors                                |
+|  2.2. Diacritic errors                                |
+|       2.2.1. Remove diacritics (full, word, letter)   |
+|       2.2.2. Replace diacritics                       |
+| 3. Typing errors                                      |      
+|   3.1. Keyboard errors                                |
+|   3.2. Ordering errors                                |  
+| 4. All errors combined (speech + typing)              | 
+|=======================================================|
+
 ## To Preprocess a Txt File:
 ```python src/preprocess.py PATH_TO_THE_TXT_FILE.txt```
 The file will be saved under the same name in ```preprocessed/```

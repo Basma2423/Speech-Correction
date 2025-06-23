@@ -120,5 +120,5 @@ class ErrorProbabilities:
     keyboard: float = 0.02
     ordering: float = 0.02
     phonetic: float = 0.06
-    diacritic: float = 0.10
+    replace_diacritics: float = 0.10
     remove_diacritics: float = 0.50

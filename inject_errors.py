@@ -8,8 +8,8 @@ print("Text with errors:", inject_error(text, error_type="speech"))
 
 ep = ErrorProbabilities(
     phonetic=0.1,
-    diacritic=0.1,
-    no_error=0.9,
+    no_error=0.1,
+    replace_diacritics=0.9,
     remove_diacritics=0.1
 )
 

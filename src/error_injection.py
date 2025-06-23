@@ -95,7 +95,7 @@ def apply_remove_diacritics_error(text):
 def apply_diacritic_error(text, probs):
 
     remove_prob = probs.remove_diacritics
-    prob = probs.diacritic
+    replace_prob = probs.replace_diacritics
 
     if random.random() < remove_prob:
         return apply_remove_diacritics_error(text)
@@ -103,7 +103,7 @@ def apply_diacritic_error(text, probs):
     text_chars = list(text)
 
     for i, char in enumerate(text_chars):
-        if char in diacritic_mapping and random.random() < prob:
+        if char in diacritic_mapping and random.random() < replace_prob:
             text_chars[i] = random.choice(diacritic_mapping[char])
 
     return ''.join(text_chars)
@@ -123,7 +123,7 @@ error_functions = {
 # | 1. No errors                                          |
 # | 2. Speech errors                                      |
 # |   2.1. Phonetic errors                                |
-# |  2.2. Diacritic errors                                |
+# |   2.2. Diacritic errors                                |
 # |       2.2.1. Remove diacritics (full, word, letter)   |
 # |       2.2.2. Replace diacritics                       |
 # | 3. Typing errors                                      |      

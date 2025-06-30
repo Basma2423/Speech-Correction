@@ -1,6 +1,7 @@
 # Speech-Correction
 
 ## Error Types:
+```
 |=======================================================|
 | Error types (each has it's own probability):          |
 |=======================================================|
@@ -15,7 +16,7 @@
 |   3.2. Ordering errors                                |  
 | 4. All errors combined (speech + typing)              | 
 |=======================================================|
-
+```
 ## To Preprocess a Txt File:
 ```python src/preprocess.py PATH_TO_THE_TXT_FILE.txt```
 The file will be saved under the same name in ```preprocessed/```
